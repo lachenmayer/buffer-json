@@ -1,6 +1,6 @@
 {
-  "name": "@lachenmayer/buffer-json",
-  "version": "1.0.1",
+  "name": "buffer-json",
+  "version": "1.0.0",
   "description": "JSON.stringify & JSON.parse which can encode/decode buffers.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lachenmayer/buffer-json.git"
+    "url": "git+https://github.com/jprichardson/buffer-json.git"
   },
   "keywords": [
     "JSON",
@@ -19,14 +19,14 @@
     "replacer",
     "base64"
   ],
-  "author": "harry lachenmayer <harrylachenmayer@gmail.com>",
+  "author": "JP Richardson",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lachenmayer/buffer-json/issues"
+    "url": "https://github.com/jprichardson/buffer-json/issues"
   },
-  "homepage": "https://github.com/lachenmayer/buffer-json#readme",
+  "homepage": "https://github.com/jprichardson/buffer-json#readme",
   "devDependencies": {
     "standard": "^12.0.1",
-    "tape": "^4.10.0"
+    "tape": "^4.10.1"
   }
 }
