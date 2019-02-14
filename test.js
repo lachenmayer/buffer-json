@@ -9,18 +9,27 @@ test("don't touch anything other than buffers", t => {
   t.end()
 })
 
-test('buffers come out unscathed', t => {
-  const bufs = [
-    Buffer.from('foo'),
-    Buffer.from(''),
-    Buffer.from('🌈'),
-    { buf: Buffer.from('🌈'), test: 'yep' }
+test('buffers encoded/decoded as expected', t => {
+  const tests = [
+    {
+      obj: Buffer.from('foo'),
+      str: '{"type":"Buffer","data":"base64:Zm9v"}'
+    },
+    { obj: Buffer.from(''), str: '{"type":"Buffer","data":""}' },
+    {
+      obj: Buffer.from('🌈'),
+      str: '{"type":"Buffer","data":"base64:8J+MiA=="}'
+    },
+    {
+      obj: { buf: Buffer.from('🌈'), test: 'yep' },
+      str: '{"buf":{"type":"Buffer","data":"base64:8J+MiA=="},"test":"yep"}'
+    }
   ]
-  for (const buf of bufs) {
-    t.deepEquals(BJSON.parse(BJSON.stringify(buf)), buf)
-  }
-  for (const buf of bufs) {
-    t.deepEquals(BJSON.parse(JSON.stringify(buf)), buf)
+  for (const test of tests) {
+    t.deepEquals(BJSON.stringify(test.obj), test.str)
+    t.deepEquals(BJSON.parse(test.str), test.obj)
+    t.deepEquals(BJSON.parse(BJSON.stringify(test.obj)), test.obj)
+    t.deepEquals(BJSON.parse(JSON.stringify(test.obj)), test.obj)
   }
   t.end()
 })

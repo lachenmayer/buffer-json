@@ -7,10 +7,13 @@ function parse (text) {
 }
 
 function replacer (key, value) {
-  if (Buffer.isBuffer(value)) {
-    return {
-      type: 'Buffer',
-      data: value.length === 0 ? '' : 'base64:' + value.toString('base64')
+  if (isBufferLike(value)) {
+    if (isArray(value.data)) {
+      if (value.data.length > 0) {
+        value.data = 'base64:' + Buffer.from(value.data).toString('base64')
+      } else {
+        value.data = ''
+      }
     }
   }
   return value
