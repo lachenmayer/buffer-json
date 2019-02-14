@@ -1,11 +1,11 @@
 # buffer-json
 
 ```
-npm install @lachenmayer/buffer-json
+npm install buffer-json
 ```
 
 ```js
-const BJSON = require('@lachenmayer/buffer-json')
+const BJSON = require('buffer-json')
 
 const str = BJSON.stringify({ buf: Buffer.from('hello') })
 // => '{"buf":{"type":"Buffer","data":"base64:aGVsbG8="}}'
@@ -43,10 +43,6 @@ A [`replacer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
 ### `reviver(key, value)`
 
 A [`reviver`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse#Using_the_reviver_parameter) implementation which turns every object of shape `{ type: 'Buffer', data: <array of numbers or string> }` into a `Buffer` instance.
-
-## History
-
-This is a fork of https://github.com/jprichardson/buffer-json/ - I initially forked the module because it crashed when used with objects where some values are `null` or `undefined`. Looking deeper into it I noticed that it was using the deprecated Buffer constructor and other deprecated methods from mocha. I decided to fix the bugs, simplify the logic, and bring it up to date with current APIs (ie. using `Buffer.from(...)` instead of `new Buffer` and using [tape](https://npm.im/tape) for tests).
 
 ## Related modules
 
