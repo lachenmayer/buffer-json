@@ -1,5 +1,10 @@
 # buffer-json
 
+**The changes in this repository have been merged upstream, and released as `buffer-json@2`. Use the original [`buffer-json`](https://www.npmjs.com/package/buffer-json) NPM package instead.**
+
+<details>
+<summary>Original README</summary>
+
 ```
 npm install @lachenmayer/buffer-json
 ```
@@ -55,3 +60,5 @@ This is a fork of https://github.com/jprichardson/buffer-json/ - I initially for
 ## License
 
 MIT
+
+</details>
